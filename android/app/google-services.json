@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "54525208022",
+    "project_id": "chattingdemo-fc909",
+    "storage_bucket": "chattingdemo-fc909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54525208022:android:a1b58e1987d481b0077077",
+        "android_client_info": {
+          "package_name": "com.demochatting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54525208022-smaknoq39tjusdret4fpjffk9ldts30q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.demochatting",
+            "certificate_hash": "962ac9b1cb6ebd9755c2353fc528742352d35202"
+          }
+        },
+        {
+          "client_id": "54525208022-l7o7rfv7sa31ks8nai4p745oq3ikoqr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFLnDsWKYLDxoo7eENLIWaVNIDKjDl3hU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54525208022-l7o7rfv7sa31ks8nai4p745oq3ikoqr6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "54525208022-lsjdgktu5nn7q0ken7p2dkvscnjg2tne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.DemoChatting"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
