@@ -4,10 +4,11 @@ import { IUserInfo } from './type'
 
 const initialState: IUserInfo = {
   avatar: '',
-  userId: '',
+  _id: '',
   token: '',
   isLogged: false,
-  email: ''
+  email: '',
+  name: ''
 }
 
 export const userInfoSlice = createSlice({

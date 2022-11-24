@@ -47,9 +47,10 @@ const LoginScreen = memo(({}: LoginScreenProps) => {
         setUserInfo({
           ...user,
           avatar: user.photo,
-          userId: user.id,
+          _id: user.id,
           token: idToken,
           isLogged: true,
+          name: user.name,
         }),
       );
     } catch (error) {

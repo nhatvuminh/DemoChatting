@@ -1,7 +1,8 @@
 export interface IUserInfo {
-  userId: string;
+  _id: string;
   token: string | null;
   isLogged: boolean;
   avatar: string | null
-  email: string
+  email: string,
+  name: string | null
 };

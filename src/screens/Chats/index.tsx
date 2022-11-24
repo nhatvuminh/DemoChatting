@@ -1,3 +1,8 @@
+import firebaseApp from "@react-native-firebase/app";
+import { firebase } from "@react-native-firebase/auth";
+import database, {
+  FirebaseDatabaseTypes
+} from "@react-native-firebase/database";
 import { useNavigation } from "@react-navigation/core";
 import React, { memo, useEffect, useLayoutEffect, useState } from "react";
 import { View } from "react-native";
@@ -5,11 +10,6 @@ import FastImage from "react-native-fast-image";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 import { useAppSelector } from "../../redux/hooks";
 import { RootState } from "../../redux/store";
-import database, {
-  FirebaseDatabaseTypes,
-} from "@react-native-firebase/database";
-import firebaseApp from "@react-native-firebase/app";
-import { firebase, FirebaseAuthTypes } from "@react-native-firebase/auth";
 
 interface ChatsScreenProps {}
 
@@ -24,17 +24,15 @@ const firebaseConfig = {
   measurementId: "G-F0X4WJ6J6Q",
 };
 
-// const app = firebaseApp.initializeApp(firebaseConfig);
-// const HARD_PASSWORD = "123456";
-
 const ChatsScreen = memo(({}: ChatsScreenProps) => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [text, setText] = useState("");
 
   const navigation = useNavigation();
-  const { avatar, email, token, userId } = useAppSelector(
+  const user = useAppSelector(
     (state: RootState) => state.userInfoReducer
   );
+  const { avatar, email, token, _id: userId, name } = user
   console.log("avatar: ", avatar);
 
   const loginWithCredentials = async () => {
@@ -73,8 +71,6 @@ const ChatsScreen = memo(({}: ChatsScreenProps) => {
   }, []);
 
   useEffect(() => {
-    // firebaseApp.initializeApp(firebaseConfig);
-    console.log("useEffect: ");
     loginWithCredentials();
   }, []);
 
@@ -85,7 +81,7 @@ const ChatsScreen = memo(({}: ChatsScreenProps) => {
       .on("child_added", (snapshot: FirebaseDatabaseTypes.DataSnapshot) => {
         console.log('received: ', JSON.stringify(snapshot.val()), userId);
         
-        const { user, createdAt, text } = snapshot.val();
+        const { user, createdAt, text, sent } = snapshot.val();
         const { key: id } = snapshot;
         const dateTime = new Date(createdAt);
         const message = {
@@ -93,13 +89,11 @@ const ChatsScreen = memo(({}: ChatsScreenProps) => {
           createdAt: dateTime,
           text,
           user,
-          received: user._id !== userId,
           sent: user._id === userId,
-          image: user.photo,
         };
         setMessages((messages) => GiftedChat.append(messages, message));
       });
-  }, [userId]);
+  }, []);
 
   const onInputTextChanged = (text) => {
     setText(text);
@@ -111,7 +105,7 @@ const ChatsScreen = memo(({}: ChatsScreenProps) => {
       text,
       user: {
         _id: userId,
-        name: userId,
+        name: name!!,
         avatar,
       },
       createdAt: new Date().getTime()
@@ -125,6 +119,7 @@ const ChatsScreen = memo(({}: ChatsScreenProps) => {
     <View style={{ flex: 1 }}>
       <GiftedChat
         messages={messages}
+        user={user}
         onInputTextChanged={onInputTextChanged}
         onSend={onSendMessage}
       />
