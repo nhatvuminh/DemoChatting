@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "54525208022",
+    "firebase_url": "https://chattingdemo-fc909-default-rtdb.firebaseio.com",
     "project_id": "chattingdemo-fc909",
     "storage_bucket": "chattingdemo-fc909.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "54525208022-3gtquv53amr36ekc9it7874sgj5d68ul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.demochatting",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
         {
           "client_id": "54525208022-smaknoq39tjusdret4fpjffk9ldts30q.apps.googleusercontent.com",
           "client_type": 1,

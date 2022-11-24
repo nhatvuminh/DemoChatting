@@ -3,4 +3,5 @@ export interface IUserInfo {
   token: string | null;
   isLogged: boolean;
   avatar: string | null
+  email: string
 };

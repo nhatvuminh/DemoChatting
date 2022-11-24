@@ -6,7 +6,8 @@ const initialState: IUserInfo = {
   avatar: '',
   userId: '',
   token: '',
-  isLogged: false
+  isLogged: false,
+  email: ''
 }
 
 export const userInfoSlice = createSlice({

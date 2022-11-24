@@ -45,6 +45,7 @@ const LoginScreen = memo(({}: LoginScreenProps) => {
       
       dispatch(
         setUserInfo({
+          ...user,
           avatar: user.photo,
           userId: user.id,
           token: idToken,
