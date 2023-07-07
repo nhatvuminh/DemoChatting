@@ -28,7 +28,7 @@ const LoginScreen = memo(({}: LoginScreenProps) => {
       await GoogleSignin.hasPlayServices({
         // platform: Android, check device has GGPlay Services
         // resolve true on IOS
-        showPlayServicesUpdateDialog: true,
+        showPlayServicesUpdateDialog: true,   
       });
       const {user, idToken}: User = await GoogleSignin.signIn();
       //   user: {
