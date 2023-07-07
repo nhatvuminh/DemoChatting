@@ -41,7 +41,7 @@ const LoginScreen = memo(({}: LoginScreenProps) => {
       // };
       // scopes?: string[];
       // idToken: string | null;
-      console.log('user info: ', user, idToken);
+      console.log('user info:    ', user, idToken);
       
       dispatch(
         setUserInfo({
